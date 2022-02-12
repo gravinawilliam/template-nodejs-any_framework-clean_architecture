@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.0.4](https://github.com/gravinawilliam/template-nodejs-any_framework-clean_architecture/compare/v1.0.2...v1.0.4) (2022-02-12)
+
 ### 1.0.2 (2022-02-12)
 
 ### Others

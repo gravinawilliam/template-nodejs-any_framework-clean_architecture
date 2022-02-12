@@ -1,6 +1,6 @@
 {
   "name": "template-nodejs-any_framework-clean_architecture",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A template for node js projects",
   "main": "dist/index.js",
   "author": "William Gravina <dev.gravinawilliam@gmail.com>",
@@ -8,6 +8,7 @@
   "scripts": {
     "check:format": "prettier --check .",
     "check:lint": "eslint . --ext .js,.ts --color",
+    "check:spelling": "cspell \"{README.md,TODO.md,.github/*.md,src/**/*.ts}\"",
     "check:types": "tsc --pretty --noEmit",
     "commit": "cz",
     "fix:format": "prettier --check --write --ignore-unknown .",
@@ -23,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
     "commitizen": "^4.2.4",
+    "cspell": "^5.18.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.8.0",
     "eslint-config-airbnb-typescript": "^16.1.0",
