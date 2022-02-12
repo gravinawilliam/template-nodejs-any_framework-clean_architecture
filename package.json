@@ -1,0 +1,8 @@
+{
+  "name": "template-nodejs-any_framework-clean_architecture",
+  "version": "1.0.0",
+  "description": "A template for node js projects",
+  "main": "dist/index.js",
+  "author": "William Gravina <dev.gravinawilliam@gmail.com>",
+  "license": "MIT"
+}
