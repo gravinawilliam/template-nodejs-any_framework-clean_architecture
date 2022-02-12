@@ -1,6 +1,6 @@
 {
   "name": "template-nodejs-any_framework-clean_architecture",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A template for node js projects",
   "main": "dist/index.js",
   "author": "William Gravina <dev.gravinawilliam@gmail.com>",
@@ -13,7 +13,8 @@
     "fix:format": "prettier --check --write --ignore-unknown .",
     "fix:lint": "npm run check:lint -- --fix",
     "prepare": "husky install",
-    "start:local:express": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/index.ts"
+    "start:local:express": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/index.ts",
+    "version": "standard-version -t"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
@@ -42,6 +43,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
+    "standard-version": "^9.3.2",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.12.0",
     "typescript": "^4.5.5"
