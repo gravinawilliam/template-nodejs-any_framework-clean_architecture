@@ -6,7 +6,11 @@
   "author": "William Gravina <dev.gravinawilliam@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "check:format": "prettier --check .",
     "check:lint": "eslint . --ext .js,.ts --color",
+    "check:types": "tsc --pretty --noEmit",
+    "fix:format": "prettier --check --write --ignore-unknown .",
+    "fix:lint": "npm run check:lint -- --fix",
     "start:local:express": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/index.ts"
   },
   "devDependencies": {
