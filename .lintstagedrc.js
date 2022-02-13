@@ -6,5 +6,5 @@ module.exports = {
     () => 'tsc --pretty --noEmit'
   ],
   '!*.{js,ts}': ['prettier --check --write --ignore-unknown'],
-  '{README.md,TODO.md,.github/*.md,src/**/*.ts}': ['npm run check:spelling']
+  '{README.md,TODO.md,.github/*.md,src/**/*.ts}': ['cspell "{README.md,TODO.md,.github/*.md,src/**/*.ts}"']
 };
