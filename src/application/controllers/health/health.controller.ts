@@ -10,5 +10,3 @@ export class HealthController implements IHealthController {
     });
   }
 }
-
-//aa

@@ -3,11 +3,11 @@ import { danger, fail, warn } from 'danger';
 const paths = {
   folders: {
     controller: {
-      development: '../src/application/controllers',
-      documentation: '../src/domain/controllers'
+      development: 'src/application/controllers',
+      documentation: 'src/domain/controllers'
     },
     useCase: {
-      development: '../src/application/use-cases'
+      development: 'src/application/use-cases'
     }
   },
   controllers: [
@@ -33,7 +33,10 @@ for (const module of paths.controllers) {
       `${paths.folders.controller.documentation}/${module.moduleName}/__docs__/${fileName}.oas.yml`
     );
 
-    if ((controllerFile.edited || controllerFile.created) && !documentationFile.edited) {
+    if (
+      (controllerFile.edited || controllerFile.created) &&
+      (!documentationFile.edited || !documentationFile.created)
+    ) {
       fail(
         `:exclamation: Houveram mudanças no arquivo ${fileName}.controller.ts, mas a documentação do arquivo ${fileName}.oas.yml não foi alterada!`
       );
@@ -50,7 +53,10 @@ for (const module of paths.controllers) {
       `${paths.folders.controller.development}/${module.moduleName}/__tests__/${fileName}.controller.spec.ts`
     );
 
-    if (controllerFile.edited && !controllerTestFile.edited) {
+    if (
+      (controllerFile.edited || controllerFile.created) &&
+      (!controllerTestFile.edited || !controllerTestFile.created)
+    ) {
       warn(
         `Existem modificações no arquivo ${fileName}.controller.ts, mas não existem modificações no arquivo ${fileName}.controller.spec.ts de teste. Isto é OK desde que o código esteja sendo refatorado.`
       );
@@ -60,14 +66,14 @@ for (const module of paths.controllers) {
 
 for (const module of paths.controllers) {
   for (const fileName of module.fileNames) {
-    const controllerFile = danger.git.fileMatch(
+    const useCaseFile = danger.git.fileMatch(
       `${paths.folders.useCase.development}/${module.moduleName}/${fileName}.use-case.ts`
     );
-    const controllerTestFile = danger.git.fileMatch(
+    const useCaseTestFile = danger.git.fileMatch(
       `${paths.folders.useCase.development}/${module.moduleName}/__tests__/${fileName}.use-case.spec.ts`
     );
 
-    if (controllerFile.edited && !controllerTestFile.edited) {
+    if ((useCaseFile.edited || useCaseFile.created) && (!useCaseTestFile.edited || !useCaseTestFile.created)) {
       warn(
         `Existem modificações no arquivo ${fileName}.use-case.ts, mas não existem modificações no arquivo ${fileName}.use-case.spec.ts de teste. Isto é OK desde que o código esteja sendo refatorado.`
       );
