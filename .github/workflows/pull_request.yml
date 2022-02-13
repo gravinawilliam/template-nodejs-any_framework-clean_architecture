@@ -1,4 +1,4 @@
-name: 'PR: Test'
+name: 'PR: Danger and Tests'
 
 on:
   pull_request:
@@ -11,7 +11,8 @@ jobs:
       - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn install
+      - run: yarn install
+      - run: yarn danger ci
       - run: yarn test:coverage
       - name: Harman's Code Coverage Report
         uses: hrgui/lcov-reporter-action@v0.1.0
