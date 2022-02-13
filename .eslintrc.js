@@ -104,6 +104,8 @@ module.exports = {
         }
       },
       rules: {
+        '@typescript-eslint/no-namespace': 'off',
+        'prettier/prettier': 'error',
         // For faster development
         'no-process-exit': 'off',
         'no-useless-constructor': 'off',
@@ -117,11 +119,22 @@ module.exports = {
         'unicorn/no-array-reduce': 'off',
         'unicorn/prefer-spread': 'off',
         'unicorn/no-array-callback-reference': 'off',
-        'unicorn/consistent-function-scoping': 'off',
+        // 'unicorn/consistent-function-scoping': 'off',
         'unicorn/no-useless-undefined': 'off',
         'unicorn/no-null': 'off',
         'unicorn/no-process-exit': 'off',
         'unicorn/prefer-module': 'off',
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            selector: 'interface',
+            format: ['PascalCase'],
+            custom: {
+              regex: '^I[A-Z]',
+              match: true
+            }
+          }
+        ],
 
         // Import and order style
         'simple-import-sort/imports': [
@@ -135,7 +148,7 @@ module.exports = {
           {
             patterns: [
               {
-                group: ['../*'],
+                group: ['../../*'],
                 message: 'For imports of parent elements use better path aliases. For example, @domain/shared.'
               }
             ]
@@ -150,12 +163,20 @@ module.exports = {
         'import/newline-after-import': 'error',
         'import/no-duplicates': 'error',
         'import/no-deprecated': 'error',
-        'import/group-exports': 'error',
+        // 'import/group-exports': 'error',
         'import/exports-last': 'error',
         'padding-line-between-statements': [
           'error',
-          { blankLine: 'always', prev: '*', next: 'export' },
-          { blankLine: 'any', prev: 'export', next: 'export' }
+          {
+            blankLine: 'always',
+            prev: '*',
+            next: 'export'
+          },
+          {
+            blankLine: 'any',
+            prev: 'export',
+            next: 'export'
+          }
         ],
         quotes: [
           'error',
@@ -178,11 +199,21 @@ module.exports = {
         'deprecation/deprecation': 'warn',
         // Disallow unsupported ECMAScript syntax on the specified version
         // Ignore ES6 modules because people might be using babel
-        'node/no-unsupported-features/es-syntax': ['error', { ignores: ['modules'] }],
+        'node/no-unsupported-features/es-syntax': [
+          'error',
+          {
+            ignores: ['modules']
+          }
+        ],
         // node plugin cannot resolve TypeScript's path aliases. See https://github.com/mysticatea/eslint-plugin-node/issues/233
         'node/no-missing-import': 'off',
         'promise/no-callback-in-promise': 'off',
-        'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }]
+        'eslint-comments/disable-enable-pair': [
+          'error',
+          {
+            allowWholeFile: true
+          }
+        ]
       },
       overrides: [
         {
@@ -194,7 +225,12 @@ module.exports = {
           },
           extends: ['plugin:jest/recommended', 'plugin:jest/style'],
           rules: {
-            'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'request.**.expect'] }]
+            'jest/expect-expect': [
+              'error',
+              {
+                assertFunctionNames: ['expect', 'request.**.expect']
+              }
+            ]
           }
         }
       ]

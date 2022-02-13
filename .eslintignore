@@ -6,6 +6,7 @@
 coverage
 dist
 jest.config.js
+jest.config.ts
 logs
 node_modules
 package-lock.json

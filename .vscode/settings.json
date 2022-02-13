@@ -1,0 +1,9 @@
+{
+  "cSpell.words": ["commitlint"],
+  "cSpell.enabled": true,
+  "cSpell.userWords": [], // only use words from .cspell.json
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true
+}

@@ -9,7 +9,9 @@ module.exports = {
   overrides: [
     {
       files: '*.ts',
-      options: { parser: 'typescript' }
+      options: {
+        parser: 'typescript'
+      }
     }
   ]
 };
