@@ -80,3 +80,20 @@ for (const module of paths.controllers) {
     }
   }
 }
+
+console.log(danger.github.pr);
+
+if (danger.github.pr.body.length <= 10) {
+  fail('Por favor descreva melhor a sua PR!');
+}
+
+if (danger.github.pr.additions + danger.github.pr.deletions > 400) {
+  warn(
+    ':exclamation: Wow, essa PR parece grande! _Se ela contém mais de uma modificação, tenta separá-las em PRs menores para facilitar o review_'
+  );
+}
+
+//* Este objeto pr tem essa propriedade mas o dange não tipou ela
+if (danger.github.requested_reviewers.users.length === 0) {
+  warn(':exclamation: Não se esqueça de marcar alguém para revisar esta PR!');
+}

@@ -26,6 +26,7 @@
     "test:coveralls": "npm run test:coverage && coveralls < coverage/lcov.info",
     "test:e2e": "yarn test --testPathPattern=e2e",
     "test:int": "yarn test --testPathPattern=integration",
+    "test:staged": "npm t -- --findRelatedTests",
     "test:unit": "yarn test --testPathPattern=unit",
     "test:watch": "yarn test --watch",
     "update-deps": "npm-check-updates -u",
