@@ -26,7 +26,7 @@ describe('Health Controller', () => {
   it('should health check success', () => {
     const result = sut.handle({ body: { status: 'OK' } });
 
-    expect(result.statusCode).toBe(300);
+    expect(result.statusCode).toBe(200);
     expect(result.data).toEqual({
       status: 'OK'
     } as HealthControllerDTO.HealthCheckStatus);
