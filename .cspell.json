@@ -11,7 +11,8 @@
     "tsconfig.json",
     "tsconfig.build.json",
     "yarn.lock",
-    "dangerfile.ts"
+    "dangerfile.ts",
+    "src/main/config/swagger.config.ts"
   ],
   "language": "en",
   "version": "0.2",
@@ -44,6 +45,7 @@
     "Gravina",
     "healthcheck",
     "healthz",
+    "HOMOLOGATION",
     "inversify",
     "libauth",
     "luxon",
