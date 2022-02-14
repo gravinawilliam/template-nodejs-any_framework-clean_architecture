@@ -49,8 +49,7 @@ jobs:
       - name: 📥 Install dependencies
         run: yarn
 
-      - name: 🧪 Run the tests
-      - name: 📊 Generate coverage report
+      - name: 🧪 Run the tests and 📊 Generate coverage report
         uses: mattallty/jest-github-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
