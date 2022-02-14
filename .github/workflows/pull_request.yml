@@ -70,4 +70,4 @@ jobs:
         run: yarn
 
       - name: 👩🏻‍💻 Run the danger
-      - run: yarn danger ci
+        run: yarn danger ci
