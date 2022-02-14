@@ -50,9 +50,12 @@ jobs:
         run: yarn
 
       - name: 🧪 Run the tests
-        run: yarn test:coverage
-
       - name: 📊 Generate coverage report
-        uses: hrgui/lcov-reporter-action@v0.1.0
+        uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # this is just an example, this could be any command that will trigger jest
+          test-command: 'yarn test:coverage'
+          changes-only: true
+          coverage-comment: true
