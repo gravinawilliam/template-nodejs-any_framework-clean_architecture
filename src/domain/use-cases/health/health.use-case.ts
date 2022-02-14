@@ -15,3 +15,5 @@ export namespace HealthUseCaseDTO {
 export interface IHealthUseCase {
   execute(parameters: HealthUseCaseDTO.Parameters): HealthUseCaseDTO.Result;
 }
+
+//
