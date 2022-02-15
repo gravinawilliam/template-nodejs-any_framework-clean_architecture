@@ -16,8 +16,32 @@ const config: Config.InitialOptions = {
   testEnvironmentOptions: {
     NODE_ENV: 'test'
   },
+  // transform: {
+  //   '\\.ts$': 'ts-jest'
+  // },
   transform: {
-    '\\.ts$': 'ts-jest'
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: false,
+            decorators: true
+          },
+          target: 'es2021',
+          keepClassNames: true,
+          transform: {
+            legacyDecorator: true,
+            decoratorMetadata: true
+          }
+        },
+        module: {
+          type: 'es6',
+          noInterop: false
+        }
+      }
+    ]
   },
   coverageReporters: ['text-summary', 'lcov'],
   coverageProvider: 'babel',
