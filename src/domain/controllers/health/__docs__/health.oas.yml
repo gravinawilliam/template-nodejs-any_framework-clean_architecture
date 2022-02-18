@@ -15,7 +15,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HealthStatusResponse'
+                $ref: '#/components/schemas/HealthCheckStatus'
         500:
           description: 'Internal Server Error'
           content:
