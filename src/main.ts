@@ -1,6 +1,6 @@
 import { bootstrap } from '@infra/bootstrap.infra';
 
-import { Main } from './main';
+import { Main } from './main/index';
 
 async function start() {
   await bootstrap();
